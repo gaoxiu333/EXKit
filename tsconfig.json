@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node LTS",
+  "_version": "20.1.0",
+  "compilerOptions": {
+    /* Base Options: */
+    "esModuleInterop": true, // 关于模块解析模块是否兼容简化的 CommonJS 导入方式：https://www.typescriptlang.org/docs/handbook/module-resolution.html
+    "skipLibCheck": true, // 性能：跳过检查 .d.ts 文件的类型检查
+    "target": "es2022", // 要生成 JS 代码的版本
+    "allowJs": true, // 允许导入 JS 代码
+    "resolveJsonModule": true, // 允许导入 JSON 文件
+    "moduleDetection": "force", // 较为严格的方式，强制将所有文件视为模块
+    "isolatedModules": true, //服务于 Babel 等第三方工具，确保每个文件都可以独立编译为模块，同时确保单独编译的文件之间没有依赖关系
+    "verbatimModuleSyntax": true, // 强制使用 import type 和 export type
+
+    /* Strictness */
+    "strict": true, // 启用所有严格类型检查选项，它同时会启用很多其他选项：关与 JS 的严格模式、any、undefined、null、函数返回值、bind参数、this、switch等的严格检查
+    "noUncheckedIndexedAccess": true, // 数组：禁用不检查索引访问
+    "noImplicitOverride": true, // 类：禁用子类和父类重名
+
+    /* If transpiling with TypeScript: */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext", // 如何解析模块导入的模块
+    "outDir": "bin",
+
+    /* If your code runs in the DOM: */
+    "lib": ["es2022", "dom", "dom.iterable"]
+  },
+  /* Files: */
+  "include": ["scripts/**/*.ts"],
+  "exclude": ["node_modules"]
+}
