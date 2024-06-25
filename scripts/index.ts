@@ -54,7 +54,6 @@ async function run() {
       ],
     },
   ]);
-  console.log("======11", name, framework);
   // 获取当前工作目录
   const cwd = process.cwd();
   const targetDir = path.resolve(cwd, targetName);
@@ -68,7 +67,6 @@ async function run() {
   );
   const templateFiles = fs.readdirSync(templateDir);
 
-  console.log("templateDir", templateDir);
   // 是否创建项目目录
   if (overwrite === "yes") {
     emptyDir(targetDir);
