@@ -54,7 +54,7 @@ async function run() {
       ],
     },
   ]);
-  console.log("======", name, framework);
+  console.log("======11", name, framework);
   // 获取当前工作目录
   const cwd = process.cwd();
   const targetDir = path.resolve(cwd, targetName);
@@ -63,15 +63,19 @@ async function run() {
   const templateDir = path.resolve(
     fileURLToPath(import.meta.url),
     "../",
+    "template",
     `template-${framework}`
   );
+  const templateFiles = fs.readdirSync(templateDir);
+
+  console.log("templateDir", templateDir);
   // 是否创建项目目录
   if (overwrite === "yes") {
     emptyDir(targetDir);
   } else if (!fs.existsSync(targetDir)) {
     fs.mkdirSync(targetDir, { recursive: true });
   }
-  for (const templateFile of templateDir) {
+  for (const templateFile of templateFiles) {
     if (templateFile === "package.json") {
       const pkgJson = fs.readFileSync(
         path.join(templateDir, `package.json`),

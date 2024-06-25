@@ -5,16 +5,21 @@
   "type": "module",
   "main": "./bin/index.js",
   "bin": {
-    "kit": "bin/index.js",
-    "starter-kit": "bin/index.js"
+    "kit": "./bin/index.js",
+    "ezkit": "./bin/index.js",
+    "starter-kit": "./bin/index.js"
   },
   "files": [
     "bin"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "tsx scripts/index.ts",
     "build": "tsx scripts/build.ts",
     "build:bin": "tsc -p tsconfig.bin.json",
+    "dev":"npm run build && pnpm link ezkit --global",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
